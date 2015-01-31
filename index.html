@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Noover</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="scripts/vendor/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="app"></div>
+
+        <div id="app-name">
+          <h1>Noover - <span>Speech Timer tool</span></h1>
+        </div>
+
+        <div id="settings">
+          <form>
+              <label>Enter speech time in seconds (i.e. 360)</label>
+              <input class="green" type="text" value="4" />
+              <label>Enter warning time in seconds (i.e. 30)</label>
+              <input class="yellow" type="text" value="2" />
+              <a id="start" class="button" href="#">Go!</a> 
+          </form>
+        </div>
+
+        <!-- build:js scripts/main.js -->
+        <script data-main="scripts/main" src="scripts/vendor/require.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
