@@ -20,7 +20,9 @@ define([
       $('#app').attr('class', 'noover-off');
     },
 
-    startTimer: function() {
+    startTimer: function(event) {
+      event.preventDefault();
+      
       var greenTime = 0;
       var yellowTime = 0;
       var greenInput = $('input.green');
