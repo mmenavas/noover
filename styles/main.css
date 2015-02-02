@@ -48,6 +48,13 @@ h1 span {
   background-color: #A30000;
 }
 
+.clock {
+  text-align:center;
+  margin-top:50px;
+  font-size: 9em;
+  color:#fff;
+}
+
 #settings {
   position:absolute; 
   z-index: 1;
@@ -66,19 +73,21 @@ form {
 }
 
 label {
-  background-color: #ddd;
+  background-color: #555;
   display: block;
   width: 100%;
   padding: 4px 0;
+  font-size:1.5em;
+  color:#FFF;
 }
 
 input[type=text] {
   color:#FFF;
-  font-size:2em;
+  font-size:1.5em;
   text-align: center;
-  display: block;
+  display: inline-block;
   padding:10px;
-  width:276px;
+  width:115px;
 }
 
 #start {
