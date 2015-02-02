@@ -18,7 +18,11 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div id="app"></div>
+        <div id="app">
+          <div class="clock">
+            <span class="minutes">00</span>:<span class="seconds">00</span>
+          </div>
+        </div>
 
         <div id="app-name">
           <h1>Noover - <span>Speech Timer tool</span></h1>
@@ -26,10 +30,12 @@
 
         <div id="settings">
           <form>
-              <label>Enter speech time in seconds (i.e. 360)</label>
-              <input class="green" type="text" value="4" />
-              <label>Enter warning time in seconds (i.e. 30)</label>
-              <input class="yellow" type="text" value="2" />
+              <label>Enter speech time</label>
+              <input class="green minutes" type="text" value="" placeholder="Minutes" />
+              <input class="green seconds" type="text" value="" placeholder="Seconds"/>
+              <label>Enter warning time</label>
+              <input class="yellow minutes" type="text" value="" placeholder="Minutes" />
+              <input class="yellow seconds" type="text" value="" placeholder="Seconds" />
               <input id="start" type="submit" value="Go!" />
           </form>
         </div>

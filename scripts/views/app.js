@@ -25,19 +25,27 @@ define([
       
       var greenTime = 0;
       var yellowTime = 0;
-      var greenInput = $('input.green');
-      var yellowInput = $('input.yellow');
+      var greenMinutes = $('input.green.minutes');
+      var greenSeconds = $('input.green.seconds');
+      var yellowMinutes = $('input.yellow.minutes');
+      var yellowSeconds = $('input.yellow.seconds');
       var settings = $('#settings');
 
       settings.attr('class', 'minimize');
 
-      if (!isNaN(greenInput.val()) && (greenInput.val() > 0)) {
-        greenTime = greenInput.val();
+      if (!isNaN(greenMinutes.val()) && (greenMinutes.val() > 0)) {
+        greenTime = parseInt(greenMinutes.val()) * 60;
       }
-      if (!isNaN(yellowInput.val()) && (yellowInput.val() > 0)) {
-        yellowTime = yellowInput.val();
+      if (!isNaN(greenSeconds.val()) && (greenSeconds.val() > 0)) {
+        greenTime = greenTime + parseInt(greenSeconds.val());
       }
-
+      if (!isNaN(yellowMinutes.val()) && (yellowMinutes.val() > 0)) {
+        yellowTime = parseInt(yellowMinutes.val()) * 60;
+      }
+      if (!isNaN(yellowSeconds.val()) && (yellowSeconds.val() > 0)) {
+        yellowTime = yellowTime + parseInt(yellowSeconds.val());
+      }
+      
       new SignalView({
         green: greenTime,
         yellow: yellowTime
