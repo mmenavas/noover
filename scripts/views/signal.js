@@ -13,16 +13,30 @@ define([
 
     el: '#app',
 
+    timers: [],
+
     initialize: function(options) {
-      Signal.reset();
-      this.$el.attr('class', Signal.getColor());
-      var totalSeconds = options.green + options.yellow;
+
+      // Timers
       var clockId;
       var blinkerId;
+      var greenId;
+      var yellowId;
+
+
+      // Reset
+      var totalSeconds = options.green + options.yellow;
+      while(this.timers.length > 0) {
+        clearInterval(this.timers.pop());
+      }
+      Signal.reset();
+      this.$el.attr('class', Signal.getColor());
+
 
       // Start clock
       $('.clock .minutes').text(this.pad(parseInt(totalSeconds/60)));
       $('.clock .seconds').text(this.pad(totalSeconds % 60));
+
       clockId = setInterval(function() {
         totalSeconds--;
         if (totalSeconds < 0) {
@@ -44,7 +58,7 @@ define([
                 blink = true;
               }
             }.bind(this), 125);
-            console.log(blinkerId);
+            this.timers.push(blinkerId);
           }
           else if (totalSeconds == 0) {
             clearInterval(blinkerId);
@@ -53,16 +67,20 @@ define([
 
         }
       }.bind(this), 1000);
+      this.timers.push(clockId);
 
 
-      setTimeout(function() {
+      // Start timer
+      greenId = setTimeout(function() {
 
         this.next();
-        setTimeout(function() {
+        yellowId = setTimeout(function() {
           this.next();
         }.bind(this), options.yellow * 1000); 
+        this.timers.push(yellowId);
 
       }.bind(this), options.green * 1000);
+      this.timers.push(greenId);
 
     },
 
